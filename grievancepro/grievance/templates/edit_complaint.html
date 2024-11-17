@@ -1,0 +1,14 @@
+<!-- templates/grievance/edit_complaint.html -->
+<form method="post">
+    {% csrf_token %}
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+        <option value="Pending" {% if complaint.status == "Pending" %}selected{% endif %}>Pending</option>
+        <option value="Resolved" {% if complaint.status == "Resolved" %}selected{% endif %}>Resolved</option>
+    </select>
+    <button type="submit">Save</button>
+</form>
+
+
+
+

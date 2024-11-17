@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<body>
+    
+    <h1>Student Dashboard</h1>
+    <p>Total Complaints Submitted: {{ total_complaints }}</p>
+    <p>Total Complaints Solved: {{ solved_complaints }}</p>
+    <a href="{% url 'submit_complaint' %}">Submit a Complaint</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        /* Apply CSS to center content */
+        body {
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif; /* Optional: set a font */
+            background-color: #f4f4f9; /* Optional: set background color */
+        }
+
+        .content {
+            text-align: center; /* Center the text inside the container */
+            border: 1px solid #ddd; /* Optional: add border */
+            padding: 20px;
+            background-color: #fff; /* Optional: background color for content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    </head>
+       <title>Student Dashboard</title>
+    </head>
+</head>
+<body>
+ 
+    <div class="content">
+        <h1>Student Dashboard</h1>
+        <p>Total Complaints Submitted: {{ total_complaints }}</p>
+        <p>Total Complaints Solved: {{ solved_complaints }}</p>
+        <a href="{% url 'submit_complaint' %}">Submit a Complaint</a>
+    </div>
+</body>
+</html>

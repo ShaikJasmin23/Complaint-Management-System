@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Complaint</title>
+</head>
+<body>
+    <h1>Submit a Complaint</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Complaint</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Ticket Complaint</title>
+</head>
+<body>
+    <h1>Submit a Ticket Complaint</h1>
+
+    <!-- Form -->
+
+
+    <div class="button">
+        <br>
+        <a href="{% url 'submit_complaint' %}">
+            <button class="submit_complaint">submit_complaint</button>
+        </a>
+        </div>
+        </br>
+
+
+
+
+
+
+    <form method="POST" action="{% url 'submit_complaint' %}">
+        {% csrf_token %}
+
+        <div>
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" required>
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" rows="5" required></textarea>
+        </div>
+
+        <div>
+            <label for="priority">Priority</label>
+            <select name="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit Complaint</button>
+    </form>
+
+</body>
+</html>
+
+
+
+
+

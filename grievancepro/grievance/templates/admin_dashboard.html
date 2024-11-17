@@ -1,0 +1,1037 @@
+
+
+
+
+ 
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Admin Dashboard</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        td a:hover {
+            color: #0056b3;
+        }
+
+        .no-complaints {
+            text-align: center;
+            font-size: 1.2em;
+            color: #888;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Admin - Manage Complaints</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for complaint in complaints %}
+                    <tr>
+                        <td>{{ complaint.id }}</td>
+                        <td>{{ complaint.user.username }}</td>
+                        <td>{{ complaint.status }}</td>
+                        <td>
+                            <a href="{% url 'edit_complaint' complaint.id %}">Edit</a> |
+                            <a href="{% url 'delete_complaint' complaint.id %}">Delete</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4" class="no-complaints">No complaints available</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- <h2>Dashboard</h2><b>Dashboard</b>
+<p>WELCOME TO Dashboard</p> -->
+
+<br>
+<br>
+<br>
+<br>
+<h1 style="color:blue;">DASHBOARD</h1>
+
+<div class="button">
+    <br>
+    <br>
+
+
+
+
+
+
+  <br>
+  <a href="{% url 'login' %}">
+      <button class="login">Login</button>
+  </a>
+  </div>
+  </br>
+  <a href="{% url 'register' %}">
+      <button class="sign">register</button></a></br>
+  </a>
+</div>
+
+      
+<h1 align="center">
+    <font face="Lato" color="#017bf5" size="7">
+          <h4 style="color:rgb(211, 8, 222);"> ACCOUNT LOGIN</h4>
+
+
+    </font>
+
+
+<p style="color:purple;"><b>WELCOME HEARTLY TO DASHBOARD</b></p>
+<select>
+  <option>admin</option>
+  <option>employee</option>
+  <option>other</option>
+  
+  </select>
+
+
+
+    
+
+
+
+
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+          <select id="Complaints" name="complaints">
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label for="Complaints">Compalaints</label>
+        </div>
+        <div class="col-75">
+            <textarea id="subject" name="subject" placeholder="Write your complaints.." style="height:200px"></textarea>
+            <label for="Complaints on ">Compalaints on</label>
+          <select>
+            <option>report</option>
+            <option>student attendance-list</option>
+            <option>results</option>
+            <option>percentage</option>
+            </select>
+        </div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Submit">
+        
+     </div>
+
+  
+
+
+    
+
+ 
+        
+       
+        
+        
+        
+
+
+
+
+
+
+      
+
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+
+<span style="font-family:verdana,geneva,sans-serif"><!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Attendance Dashboard | By Code Info</title>
+      <link rel="stylesheet" href="style.css" />
+      <!-- Font Awesome Cdn Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    </head>
+    <body>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="#" class="logo">
+             
+              <span class="nav-item">results</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-menorah"></i>
+              <span class="nav-item">dashboard</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-comment"></i>
+              <span class="nav-item">Message</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-database"></i>
+              <span class="nav-item">Report</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-chart-bar"></i>
+              <span class="nav-item">Attendance</span>
+    
+            </a></li>
+            
+            <li><a href="#">
+              <i class="fas fa-cog"></i>
+              <span class="nav-item">Setting</span>
+            </a></li>
+    
+            <li><a href="#" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+        </nav>
+    
+    
+        <section class="main">
+          <div class="main-top">
+            <h1>Attendance</h1>
+            <i class="fas fa-user-cog"></i>
+          </div>
+          <div class="users">
+            <div class="card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPocAKpsP2q3v93yH2bo6f4TMPUpStbagt57MAvm3IT5PFntb8dYFRRs-Ywy3ygfiiWvA&usqp=CAU">
+
+
+
+   
+              
+
+              <h4>Shaik Yasmin</h4>
+              <p>Ui designer</p>
+              <div class="per">
+                <table>
+                  <tr>
+                    <td><span>85%</span></td>
+                    <td><span>87%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Month</td>
+                    <td>Year</td>
+                  </tr>
+                </table>
+              </div>
+              <button>Profile</button>
+            </div>
+            <div class="card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAId4dBX6XrGBqvZTufl0_p5YrHSesGR9sLpzWBzKku5MvAnrCJE0AABo-cbJmUg9-2J0&usqp=CAU">
+              <h4>Shaik Jasmin</h4>
+              <p>Progammer</p>
+              <div class="per">
+                <table>
+                  <tr>
+                    <td><span>82%</span></td>
+                    <td><span>85%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Month</td>
+                    <td>Year</td>
+                  </tr>
+                </table>
+              </div>
+              <button>Profile</button>
+            </div>
+            <div class="card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAId4dBX6XrGBqvZTufl0_p5YrHSesGR9sLpzWBzKku5MvAnrCJE0AABo-cbJmUg9-2J0&usqp=CAU">
+              <h4>Shaik Haseena</h4>
+              <p>tester</p>
+              <div class="per">
+                <table>
+                  <tr>
+                    <td><span>94%</span></td>
+                    <td><span>92%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Month</td>
+                    <td>Year</td>
+                  </tr>
+                </table>
+              </div>
+              <button>Profile</button>
+            </div>
+            <div class="card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGU9oY_5kvrA54RHblxQeYR2SSq-YzWZ3ZUg&s">
+              <h4>saniya mirza</h4>
+              <p>Ui designer</p>
+              <div class="per">
+                <table>
+                  <tr>
+                    <td><span>85%</span></td>
+                    <td><span>82%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Month</td>
+                    <td>Year</td>
+                  </tr>
+                </table>
+              </div>
+              <button>Profile</button>
+            </div>
+          </div>
+    
+          <section class="attendance">
+            <div class="attendance-list">
+              <h1>Attendance List</h1>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Depart</th>
+                    <th>Date</th>
+                    <th>Join Time</th>
+                    <th>Logout Time</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>01</td>
+                    <td>Shaik Yasmin</td>
+                    <td>Design</td>
+                    <td>09-10-24</td>
+                    <td>8:00AM</td>
+                    <td>3:00PM</td>
+                    
+                    <td><button><a href="https://i.sstatic.net/rX53N.jpg">view</a></button></td>
+                    
+                  </tr>
+                  <tr class="active">
+                    <td>02</td>
+                    <td>Shaik Jasmin</td>
+                    <td>Coding</td>
+                    <td>09-10-24</td>
+                    <td>9:00AM</td>
+                    <td>4:00PM</td>
+                    <td><button><a href="https://www.researchgate.net/publication/374408548/figure/fig1/AS:11431281195155478@1696341061184/Candidate-Bar-Chart-showing-relationship-between-attendance-and-final-exam-score.png">view</a></button></td>
+                  </tr>
+                  <tr>
+                    <td>03</td>
+                    <td>Shaik Haseena</td>
+                    <td>testing</td>
+                    <td>09-10-24</td>
+                    <td>8:00AM</td>
+                    <td>3:00PM</td>
+                    <td><button><a href="https://i.pinimg.com/originals/7f/cf/ad/7fcfadad4c76e5c38ba4f45b419881b8.jpg">view</a></button></td>
+                  </tr>
+                  <tr>
+                    <td>04</td>
+                    <td>Saniya mirza</td>
+                    <td>Design</td>
+                    <td>09-10-24</td>
+                    <td>8:00AM</td>
+                    <td>3:00PM</td>
+                    
+                    <td><button><a href="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-031-71318-7_44/MediaObjects/561864_1_En_44_Fig1_HTML.png">view</a></button></td>
+
+
+
+                  </tr>
+
+                  <!-- <tr >
+                    <td>05</td>
+                    <td>Salina</td>
+                    <td>Coding</td>
+                    <td>03-24-22</td>
+                    <td>9:00AM</td>
+                    <td>4:00PM</td>
+                    <td><button>View</button></td>
+                  </tr>
+                  <tr >
+                    <td>06</td>
+                    <td>Tara Smith</td>
+                    <td>Testing</td>
+                    <td>03-24-22</td>
+                    <td>9:00AM</td>
+                    <td>4:00PM</td>
+                    <td><button>View</button></td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
+    
+    </body>
+    </html>
+    </span>
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking Complaint</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ticket Booking Complaint Form</h1>
+        <form action="/submit-ticket-complaint" method="POST">
+            <!-- User Information -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Booking Information -->
+            <label for="bookingID">Booking ID</label>
+            <input type="text" id="bookingID" name="bookingID" required>
+
+            <label for="bookingDate">Date of Booking</label>
+            <input type="date" id="bookingDate" name="bookingDate" required>
+
+            <!-- Complaint Category -->
+            <label for="category">Complaint Category</label>
+            <select id="category" name="category" required>
+                <option value="refund">Refund Issue</option>
+                <option value="cancellation">Cancellation Issue</option>
+                <option value="overcharge">Overcharge</option>
+                <option value="technical">Technical Issue</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Complaint Details -->
+            <label for="description">Complaint Description</label>
+            <textarea id="description" name="description" rows="6" required placeholder="Describe your complaint..."></textarea>
+
+            <!-- Attachment Upload -->
+            <label for="attachment">Attachment (optional)</label>
+            <input type="file" id="attachment" name="attachment">
+
+            <!-- Submission -->
+            <button type="submit">Submit Complaint</button>
+            
+<div class="button">
+  <br>
+  <a href="{% url 'submit_complaint' %}">
+      <button class="submit_complaint">submit_complaint</button>
+  </a>
+  </div>
+  </br>  
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+ 
+
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        /* Common Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        .button {
+            margin-bottom: 20px;
+        }
+
+        .button a {
+            text-decoration: none;
+        }
+
+        .login, .sign {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .login:hover, .sign:hover {
+            background-color: #45a049;
+        }
+
+        /* Table Styles */
+        table {
+            width: 80%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        td a:hover {
+            color: #0056b3;
+        }
+
+        .no-complaints {
+            text-align: center;
+            font-size: 1.2em;
+            color: #888;
+            padding: 20px;
+        }
+
+        /* Form Styles */
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        /* Dashboard Styles */
+        nav {
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        .main {
+            margin-top: 70px;
+            padding: 20px;
+        }
+
+        .card {
+            margin: 10px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .per {
+            margin: 20px 0;
+        }
+
+        .attendance-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .attendance-table th, .attendance-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .attendance-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .attendance-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .attendance-table tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Dashboard Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#">Results</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Message</a></li>
+            <li><a href="#">Report</a></li>
+            <li><a href="#">Attendance</a></li>
+            <li><a href="#">Setting</a></li>
+            <li><a href="#">Log out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Admin Management Section -->
+    <div class="container">
+        <h1>Admin - Manage Complaints</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- For dynamic content, replace below with templating logic (e.g., Django, Flask) -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Resolved</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>Pending</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <!-- No complaints message -->
+                <tr>
+                    <td colspan="4" class="no-complaints">No complaints available</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Student Details Form -->
+    <div class="container">
+        <h1>Student Login</h1>
+        <div class="button">
+            <a href="#"><button class="login">Login</button></a>
+            <a href="#"><button class="sign">Register</button></a>
+        </div>
+        <form action="/submit-form" method="POST">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+            <label for="complaints">Complaints</label>
+            <textarea id="complaints" name="complaints" placeholder="Write your complaints.." style="height:200px"></textarea>
+
+            <label for="complaints-on">Complaints-On</label>
+            <input type="text" id="complaints-on" name="complaints-on" placeholder="Date of complaint">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Attendance Details -->
+    <div class="container">
+        <h1>Attendance</h1>
+        <div class="attendance-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Date</th>
+                        <th>Join Time</th>
+                        <th>Logout Time</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Shaik Yasmin</td>
+                        <td>Design</td>
+                        <td>09-10-24</td>
+                        <td>8:00AM</td>
+                        <td>3:00PM</td>
+                        <td><button><a href="#">view</a></button></td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Shaik Jasmin</td>
+                        <td>Coding</td>
+                        <td>09-10-24</td>
+                        <td>9:00AM</td>
+                        <td>4:00PM</td>
+                        <td><button><a href="#">view</a></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
