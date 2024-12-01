@@ -1,225 +1,3 @@
-
-
-
-
- 
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-   
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Admin Dashboard</title>
-   
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 80%;
-            margin: 20px 0;
-            border-collapse: collapse;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #ddd;
-        }
-
-        td a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-            margin: 0 10px;
-        }
-
-        td a:hover {
-            color: #0056b3;
-        }
-
-        .no-complaints {
-            text-align: center;
-            font-size: 1.2em;
-            color: #888;
-            padding: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            table {
-                width: 100%;
-            }
-
-            th, td {
-                font-size: 14px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div>
-        <h1>Admin - Manage Complaints</h1>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>User</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for complaint in complaints %}
-                    <tr>
-                        <td>{{ complaint.id }}</td>
-                        <td>{{ complaint.user.username }}</td>
-                        <td>{{ complaint.status }}</td>
-                        <td>
-                            <a href="{% url 'edit_complaint' complaint.id %}">Edit</a> |
-                            <a href="{% url 'delete_complaint' complaint.id %}">Delete</a>
-                        </td>
-                    </tr>
-                {% empty %}
-                    <tr>
-                        <td colspan="4" class="no-complaints">No complaints available</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-</style>
-</head>
-<body>
-
-<!-- <h2>Dashboard</h2><b>Dashboard</b>
-<p>WELCOME TO Dashboard</p> -->
-
 <br>
 <br>
 <br>
@@ -229,12 +7,6 @@ input[type=submit]:hover {
 <div class="button">
     <br>
     <br>
-
-
-
-
-
-
   <br>
   <a href="{% url 'login' %}">
       <button class="login">Login</button>
@@ -262,13 +34,6 @@ input[type=submit]:hover {
   <option>other</option>
   
   </select>
-
-
-
-    
-
-
-
 
 <div class="container">
   <form action="/action_page.php">
@@ -330,25 +95,6 @@ input[type=submit]:hover {
         
      </div>
 
-  
-
-
-    
-
- 
-        
-       
-        
-        
-        
-
-
-
-
-
-
-      
-
     </div>
   </form>
 </div>
@@ -357,15 +103,13 @@ input[type=submit]:hover {
 </html>
 
 
-
-
 <span style="font-family:verdana,geneva,sans-serif"><!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <title>Attendance Dashboard | By Code Info</title>
       <link rel="stylesheet" href="style.css" />
-      <!-- Font Awesome Cdn Link -->
+      
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
     <body>
@@ -552,7 +296,7 @@ input[type=submit]:hover {
 
                   </tr>
 
-                  <!-- <tr >
+                   <tr >
                     <td>05</td>
                     <td>Salina</td>
                     <td>Coding</td>
@@ -642,15 +386,6 @@ input[type=submit]:hover {
     </div>
 </body>
 </html>
-
-
-
-
- 
-
-
-
-
 
 
  <!DOCTYPE html>
@@ -1034,4 +769,6 @@ input[type=submit]:hover {
     </div>
 
 </body>
+</html> 
+ 
 

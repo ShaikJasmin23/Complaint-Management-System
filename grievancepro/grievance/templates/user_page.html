@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+</head>
+<body>
+    <h1>{{ username }}'s Complaints</h1>
+    <ul>
+        {% for complaint in complaints %}
+            <li>
+                {{ complaint.category }}: {{ complaint.description }}
+                <a href="{% url 'edit_complaint' complaint.id %}">Edit</a>
+                <a href="{% url 'delete_complaint' complaint.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_grievance' %}">Add New Complaint</a>
+</body>
+</html>
+
+
+

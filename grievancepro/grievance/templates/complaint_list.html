@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints</title>
+</head>
+<body>
+    <h1>Complaint List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Department</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for complaint in complaints %}
+                <tr>
+                    <td>{{ complaint.user.username }}</td>
+                    <td>{{ complaint.department.name }}</td>
+                    <td>{{ complaint.category.name }}</td>
+                    <td>{{ complaint.status }}</td>
+                    <td>{{ complaint.created_at }}</td>
+                    <td>
+                        <a href="#">View</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">No complaints found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_complaint' %}">Submit a Complaint</a>
+</body>
+</html>

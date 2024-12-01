@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Grievances</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h2>Your Grievances</h2>
+    <ul>
+        {% for grievance in grievances %}
+            <li>
+                <strong>{{ grievance.title }}</strong> 
+                - {{ grievance.category.name }} 
+                - {{ grievance.department.name }}
+                - Status: {{ grievance.get_status_display }} 
+                <br>
+                <a href="{% url 'edit_grievance' grievance.id %}">Edit</a> | 
+                <a href="{% url 'delete_grievance' grievance.id %}">Delete</a> | 
+                <a href="{% url 'update_status' grievance.id %}">Update Status</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
