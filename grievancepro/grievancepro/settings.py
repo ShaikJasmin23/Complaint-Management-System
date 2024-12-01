@@ -130,3 +130,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",  # or your specific path
 # ]
+
+
+
+
+AUTH_USER_MODEL = 'auth.User'  # This will use Django's default User model
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
