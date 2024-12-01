@@ -106,6 +106,7 @@ urlpatterns = [
     path('complaint/<int:complaint_id>/edit/', views.edit_complaint, name='edit_complaint'),
     path('complaint/<int:complaint_id>/delete/', views.delete_complaint, name='delete_complaint'),
     path('update_complaint/<int:complaint_id>/', views.update_complaint, name='update_complaint'),
+    path('control_panel/',views.control_panel,name='control_panel'),
 ]
 
 
