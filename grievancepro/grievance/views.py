@@ -363,7 +363,12 @@ def delete_complaint(request, complaint_id):
 
 
 
-
+def control_panel(request):
+    """
+    Render the admin dashboard to manage complaints.
+    """
+    complaints = Complaint.objects.all()  # Fetch all complaints
+    return render(request, 'control_panel.html', {'complaints': complaints})
 
 
 
